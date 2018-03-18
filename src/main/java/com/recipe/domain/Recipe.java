@@ -1,6 +1,7 @@
 package com.recipe.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -14,6 +15,12 @@ public class Recipe {
     private Integer servings;
     private String url;
     private String directions;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Category category;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reciepe")
+    private Set<Inrgedient> ingredients;
 
     @Lob
     private Byte[] image;
@@ -91,5 +98,13 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Set<Inrgedient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Inrgedient> ingredients) {
+        this.ingredients = ingredients;
     }
 }
