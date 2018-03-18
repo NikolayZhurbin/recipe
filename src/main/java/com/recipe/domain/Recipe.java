@@ -15,6 +15,8 @@ public class Recipe {
     private Integer servings;
     private String url;
     private String directions;
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Category category;
@@ -106,5 +108,21 @@ public class Recipe {
 
     public void setIngredients(Set<Inrgedient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 }
