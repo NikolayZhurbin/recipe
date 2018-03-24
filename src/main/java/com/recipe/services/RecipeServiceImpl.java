@@ -2,10 +2,12 @@ package com.recipe.services;
 
 import com.recipe.domain.Recipe;
 import com.recipe.repositories.RecipeRepository;
+import org.springframework.stereotype.Controller;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Controller
 public class RecipeServiceImpl implements RecipeService{
     private final RecipeRepository recipeRepository;
 
