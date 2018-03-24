@@ -8,6 +8,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.anySet;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -31,7 +33,6 @@ public class IndexControllerTest {
 
         assertEquals(initVal, indexController.getIndexPage(model));
         verify(recipeService, times(1)).getRecioes();
-        verify(model, times(1)).addAttribute("recipes", recipeService.getRecioes());
-        verify(recipeService, times(2)).getRecioes();
+        verify(model, times(1)).addAttribute(eq("recipes"), anySet());
     }
 }
