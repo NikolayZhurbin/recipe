@@ -14,7 +14,6 @@ import static org.mockito.Mockito.verify;
 public class IndexControllerTest {
 
     IndexController indexController;
-
     @Mock
     RecipeService recipeService;
     @Mock
